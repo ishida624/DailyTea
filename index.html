@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
-    <meta name="author" content="日月車干茶園，台灣阿里山高山茶，80年傳承的製茶技術，曾經取得多個獎項。不管是自己喝還是送禮，都是CP值最高的選擇" />
+    <meta name="author" content="▍四十年前，龍眼村還是種植金針為主。◤行政院農業委員會茶業改良◢場發現這裡環境清幽無汙染，海拔一千雲霧繚繞，非常適合種植茶葉！便輔導當地村民開始栽種茶葉。
+
+▍當時父親開始嘗試學習，他是梅山鄉龍眼村的茶葉小農，累積三十多年的製茶經歷，為嘉義梅山鄉龍眼村龍香茗茶產銷班成員， 茶園座落龍眼村海拔一千公尺的茶園，主要生產烏龍茶、金萱茶，更製作優質的小葉種紅茶。
+
+他有茶葉品評師、優良製茶師等證照，曾多次獲得阿里山茶葉生產合作社 頭等獎、小葉種紅茶獲得梅山鄉公所優質獎等獎項。希望讓更多人認識梅山鄉的優質茶葉。" />
     <title>日月車干茶園</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -190,10 +194,10 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <input class="form-control" id="name" name="name" value="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                             <label for="name">姓名</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">姓名必填</div>
                         </div>
@@ -223,9 +227,9 @@
                         <div class="d-none" id="submitSuccessMessage">
                             <div class="text-center mb-3">
                                 <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                <!-- To activate this form, sign up at -->
+                                <!-- <br /> -->
+                                <!-- <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a> -->
                             </div>
                         </div>
                         <!-- Submit error message-->
@@ -236,35 +240,59 @@
                             <div class="text-center text-danger mb-3">Error sending message!</div>
                         </div>
                         <!-- Submit Button-->
-                        <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Submit</button></div>
+                        <div class="d-grid">
+                            <input class="btn btn-primary btn-xl" id="submitButton" value="送出" type="button" onclick="sendEmail()"></input>
+                        </div>
                     </form>
                 </div>
             </div>
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                    <i class="bi-phone fs-2 mb-3 text-muted"></i>
+            <div class="row gx-4 gx-lg-5 justify-content-center ">
+                <div class="col-lg-4 text-center mb-5 mb-lg-0 ">
+                    <i class="bi-phone fs-2 mb-3 text-muted "></i>
                     <div>0933525130</div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer-->
-    <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
-            <div class="small text-center text-muted">Copyright &copy; 2021 - Company Name</div>
+    <footer class="bg-light py-5 ">
+        <div class="container px-4 px-lg-5 ">
+            <div class="small text-center text-muted ">Copyright &copy; 2021 - Company Name</div>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js "></script>
     <!-- SimpleLightbox plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js "></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.js "></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js "></script> -->
+    <script src="./smtp.js "></script>
+    <script>
+        function sendEmail() {
+            // console.log(document.getElementById('name'))
+            const nameElement = document.getElementById("name");
+            const name = nameElement.value;
+            const emailElement = document.getElementById("email");
+            const email = emailElement.value;
+            // alert("你的姓名是 " + name + "\n電子郵件是 " + email);
+            Email.send({
+                SecureToken: "0e8e81a4-0a81-44c9-809c-079e6c693278",
+                To: 'ishida624@gmail.com',
+                From: "gill@gmail.com ",
+                Subject: 'test',
+                Body: name,
+                Body: name,
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 </body>
+
 
 </html>
