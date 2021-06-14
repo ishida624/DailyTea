@@ -11,7 +11,7 @@
 他有茶葉品評師、優良製茶師等證照，曾多次獲得阿里山茶葉生產合作社 頭等獎、小葉種紅茶獲得梅山鄉公所優質獎等獎項。希望讓更多人認識梅山鄉的優質茶葉。" />
     <meta name="keywords" content="高山茶 烏龍茶 茶包 金萱茶 紅茶 台灣茶 日月車干 梅山鄉 龍眼村 手採茶 送禮 輕發酵茶 單寧酸 兒茶素 戒糖">
     <meta name="author" content="" />
-    <title>日月車干茶園</title>
+    <title>DailyTea 日月車干茶園</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap Icons-->
@@ -213,7 +213,7 @@
                     <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST">
                         <!-- Name input-->
                         <div class="form-floating mb-3">
-                            <input class="form-control" id="name" name="name" value="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                             <label for="name">姓名</label>
                             <div class="invalid-feedback" data-sb-feedback="name:required">姓名必填</div>
                         </div>
@@ -307,7 +307,7 @@
                 To: 'ishida624@gmail.com',
                 From: "gill@gmail.com ",
                 Subject: 'test',
-                Body: name + "&nbsp;" + email + "</br>" + tel + "</br>" + message,
+                Body: `${name}<br>${email}<br>${tel}<br>${message}`,
 
             }).then(
                 message => alert(message)
