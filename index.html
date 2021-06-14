@@ -9,7 +9,7 @@
 ▍當時父親開始嘗試學習，他是梅山鄉龍眼村的茶葉小農，累積三十多年的製茶經歷，為嘉義梅山鄉龍眼村龍香茗茶產銷班成員， 茶園座落龍眼村海拔一千公尺的茶園，主要生產烏龍茶、金萱茶，更製作優質的小葉種紅茶。
 
 他有茶葉品評師、優良製茶師等證照，曾多次獲得阿里山茶葉生產合作社 頭等獎、小葉種紅茶獲得梅山鄉公所優質獎等獎項。希望讓更多人認識梅山鄉的優質茶葉。" />
-    <meta name="keywords" content="輕發酵茶 單寧酸 兒茶素 戒糖">
+    <meta name="keywords" content="高山茶 烏龍茶 茶包 金萱茶 紅茶 台灣茶 日月車干 梅山鄉 龍眼村 手採茶 送禮 輕發酵茶 單寧酸 兒茶素 戒糖">
     <meta name="author" content="" />
     <title>日月車干茶園</title>
     <!-- Favicon-->
@@ -48,11 +48,13 @@
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                 <div class="col-lg-8 align-self-end">
-                    <h1 class="text-white font-weight-bold">日月車干茶園</h1>
+                    <h1 class="text-white font-weight-bold display-1">日月車干茶園</h1>
                     <hr class="divider" />
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 mb-5">日月車干茶園，台灣阿里山高山茶，80年傳承的製茶技術，曾經取得多個獎項。不管是自己喝還是送禮，都是CP值最高的選擇</p>
+                    <p class="text-white-75 mb-5">
+                        位於嘉義梅山龍眼村的好茶 </br>日月車干茶園，取自父親明軒之名 早晚都想喝的Daily Tea好茶
+                    </p>
                     <a class="btn btn-primary btn-xl" href="#about">瞭解更多</a>
                 </div>
             </div>
@@ -65,7 +67,20 @@
                 <div class="col-lg-8 text-center">
                     <h2 class="text-white mt-0">日月車干茶園</h2>
                     <hr class="divider divider-light" />
-                    <p class="text-white-75 mb-4">日月車干茶園，位於嘉義縣梅山鄉龍眼村，海拔100公尺以上，製茶技術3代傳承，細心把控每一道製成</p>
+                    <p class="mb-4 font-weight-bold h4" style="color:rgb(255, 103, 103);">
+                        四十年前，龍眼村還是種植金針為主。
+                        </br>
+                        </br> ◤行政院農業委員會茶業改良◢ 場發現這裡環境清幽無汙染，海拔一千雲霧繚繞，非常適合種植茶葉！便輔導當地村民開始栽種茶葉。
+                        </br>
+                        </br>當時父親開始嘗試學習，他是梅山鄉龍眼村的茶葉小農，累積三十多年的製茶經歷，為嘉義梅山鄉龍眼村龍香茗茶產銷班成員，
+                        </br>
+                        </br> 茶園座落龍眼村海拔一千公尺的茶園，主要生產烏龍茶、金萱茶，更製作優質的小葉種紅茶。
+                        </br>
+                        </br> 他有茶葉品評師、優良製茶師等證照，曾多次獲得阿里山茶葉生產合作社 頭等獎、小葉種紅茶獲得梅山鄉公所優質獎等獎項。
+                        </br>
+                        </br>希望讓更多人認識梅山鄉的優質茶葉。
+
+                    </p>
                     <a class="btn btn-light btn-xl" href="#services">蝦皮購買連結</a>
                 </div>
             </div>
@@ -250,7 +265,13 @@
             <div class="row gx-4 gx-lg-5 justify-content-center ">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0 ">
                     <i class="bi-phone fs-2 mb-3 text-muted "></i>
+                    <div>張名軒</div>
                     <div>0933525130</div>
+                </div>
+                <div class="col-lg-4 text-center mb-5 mb-lg-0 ">
+                    <i class="bi-phone fs-2 mb-3 text-muted "></i>
+                    <div>張馥昀</div>
+                    <div>0919724965</div>
                 </div>
             </div>
         </div>
@@ -275,19 +296,19 @@
     <script src="./smtp.js "></script>
     <script>
         function sendEmail() {
-            // console.log(document.getElementById('name'))
-            const nameElement = document.getElementById("name");
-            const name = nameElement.value;
-            const emailElement = document.getElementById("email");
-            const email = emailElement.value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const tel = document.getElementById("phone").value;
+            const message = document.getElementById("message").value;
+            // console.log(telElement)
             // alert("你的姓名是 " + name + "\n電子郵件是 " + email);
             Email.send({
                 SecureToken: "0e8e81a4-0a81-44c9-809c-079e6c693278",
                 To: 'ishida624@gmail.com',
                 From: "gill@gmail.com ",
                 Subject: 'test',
-                Body: name,
-                Body: name,
+                Body: name + "&nbsp;" + email + "</br>" + tel + "</br>" + message,
+
             }).then(
                 message => alert(message)
             );
